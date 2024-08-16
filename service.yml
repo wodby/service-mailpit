@@ -1,0 +1,49 @@
+name: mailpit
+icon: mailpit
+type: service
+title: Mailpit
+hostname: mailpit
+containers:
+- name: mailpit
+  image: axllent/mailpit
+options:
+- version: '1.20'
+  tag: v1.20
+endpoints:
+- name: mailpit
+  ports:
+  - name: smtp
+    number: 1025
+    type: tcp
+  - name: ui
+    number: 8025
+    type: http   
+labels:
+- mailpit
+- smtp
+
+volumes:
+- name: data
+  title: Data
+  optional: true
+  helm: 
+    labels: master.persistence.labels  
+    values:
+    - name: master.persistence.enabled
+      value: true
+    - name: master.persistence.size
+      value: '{{volumes.spool.size}}Gi'
+
+helm:
+  name: wodby
+  source: oci://registry-1.docker.io/wodby/mailpit
+  chart: oci://registry-1.docker.io/wodby/mailpit
+  version: 0.1.0
+  configurations:
+  - name: mailpit
+    labels: podLabels
+    annotations: podAnnotations
+    env: envVars
+    resources: resources
+    volumes: volumes
+    mounts: volumeMounts
