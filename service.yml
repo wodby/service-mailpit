@@ -14,10 +14,10 @@ endpoints:
   ports:
   - name: smtp
     number: 1025
-    type: tcp
+    protocol: tcp
   - name: ui
     number: 8025
-    type: http   
+    protocol: http   
 labels:
 - mailpit
 - smtpd
