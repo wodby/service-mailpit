@@ -50,5 +50,5 @@ helm:
     annotations: podAnnotations
     env: envVars
     resources: resources
-    volumes: volumes
-    mounts: volumeMounts
+    volumes: extraVolumes
+    mounts: extraVolumeMounts
