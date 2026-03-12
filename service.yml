@@ -45,7 +45,7 @@ helm:
   chart: oci://registry-1.docker.io/wodby/mailpit
   version: 0.2.0
   configurations:
-  - name: mailpit
+  - container: mailpit
     labels: podLabels
     annotations: podAnnotations
     env: envVars
