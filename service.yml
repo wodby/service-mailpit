@@ -2,7 +2,6 @@ name: mailpit
 icon: mailpit
 type: service
 title: Mailpit
-hostname: mailpit
 containers:
 - name: mailpit
   image: axllent/mailpit
