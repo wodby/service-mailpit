@@ -40,10 +40,15 @@ helm:
   source: oci://registry-1.docker.io/wodby/mailpit
   chart: oci://registry-1.docker.io/wodby/mailpit
   version: 0.2.0
+
 workloads:
 - id: main
   kind: statefulset
   primary: true
+  helm:
+    labels: podLabels
+    annotations: podAnnotations
+    volumes: extraVolumes
   containers:
   - name: mailpit
     image: axllent/mailpit
@@ -51,7 +56,3 @@ workloads:
       resources: resources
       env: envVars
       mounts: extraVolumeMounts
-  helm:
-    labels: podLabels
-    annotations: podAnnotations
-    volumes: extraVolumes
