@@ -2,9 +2,6 @@ name: mailpit
 icon: mailpit
 type: service
 title: Mailpit
-containers:
-- name: mailpit
-  image: axllent/mailpit
 options:
 - version: '1.20'
   tag: v1.20
@@ -16,7 +13,7 @@ endpoints:
     protocol: tcp
   - name: ui
     number: 8025
-    protocol: http   
+    protocol: http
 labels:
 - mailpit
 - smtpd
@@ -26,7 +23,7 @@ volumes:
   title: Data
   optional: true
   helm:
-    labels: persistence.labels  
+    labels: persistence.labels
     values:
     - name: master.persistence.enabled
       value: true
@@ -43,11 +40,18 @@ helm:
   source: oci://registry-1.docker.io/wodby/mailpit
   chart: oci://registry-1.docker.io/wodby/mailpit
   version: 0.2.0
-  configurations:
-  - container: mailpit
+workloads:
+- id: main
+  kind: statefulset
+  primary: true
+  containers:
+  - name: mailpit
+    image: axllent/mailpit
+    helm:
+      resources: resources
+      env: envVars
+      mounts: extraVolumeMounts
+  helm:
     labels: podLabels
     annotations: podAnnotations
-    env: envVars
-    resources: resources
     volumes: extraVolumes
-    mounts: extraVolumeMounts
