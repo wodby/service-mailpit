@@ -1,12 +1,30 @@
-# Mailpit service for Wodby
+# Mailpit service for Kubernetes on Wodby
 
-Use Mailpit as a reusable component in applications managed by Wodby. This
-repository contains the service manifests and referenced files used by the
-public Mailpit service in the Wodby catalog.
+Run Mailpit as a reusable Kubernetes application service with Wodby.
 
-- [Mailpit service in the Wodby catalog](https://wodby.com/services/mailpit)
+This repository defines the Wodby service manifests and operational
+configuration for Mailpit.
+
+- [Browse Wodby services](https://wodby.com/services)
 - [Wodby service documentation](https://wodby.com/docs/2.0/services/)
 - [Service manifest reference](https://wodby.com/docs/2.0/services/template/)
+
+## Wodby stacks using this service
+
+- [Django application stack](https://github.com/wodby/stack-django)
+- [Drupal application stack](https://github.com/wodby/stack-drupal)
+- [FastAPI application stack](https://github.com/wodby/stack-fastapi)
+- [Flask application stack](https://github.com/wodby/stack-flask)
+- [Go application stack](https://github.com/wodby/stack-go)
+- [Laravel application stack](https://github.com/wodby/stack-laravel)
+- [Mailpit application stack](https://github.com/wodby/stack-mailpit)
+- [Next.js application stack](https://github.com/wodby/stack-nextjs)
+- [Node.js application stack](https://github.com/wodby/stack-node)
+- [PHP application stack](https://github.com/wodby/stack-php)
+- [Python application stack](https://github.com/wodby/stack-python)
+- [Rails application stack](https://github.com/wodby/stack-rails)
+- [Ruby application stack](https://github.com/wodby/stack-ruby)
+- [WordPress application stack](https://github.com/wodby/stack-wordpress)
 
 ## Service overview
 
@@ -23,38 +41,28 @@ public Mailpit service in the Wodby catalog.
 
 ## Use this service
 
-A service is a reusable component and does not deploy by itself. Add the public
-catalog service to a stack, configure its required links and settings, publish
-the stack, and then create or upgrade an app instance.
+Use this service through one of the Wodby application stacks listed above, or
+reference `mailpit` from a custom Wodby stack.
 
-To maintain your own version of this service:
+A service is a reusable component and does not deploy by itself. The stack
+defines its links, settings, versions, resources, and relationship to the rest
+of the application.
+
+## Maintain a custom version
 
 1. Fork this repository.
-2. Edit the service manifest and any files it references.
-3. Import the repository as a
-   [Git-backed service](https://wodby.com/docs/2.0/services/create/#create-a-git-backed-service).
-4. Reference `mailpit` from your stack manifest.
-
-Wodby imports the manifest and referenced files from the selected Git branch or
-tag and creates a new service revision when the Git-backed service is updated.
-
-## Customize the service
-
-Common changes include adjusting versions, images, Helm chart settings, build
-inputs, environment variables, links, storage, resources, and operational
-workflows supported by the manifest.
+2. Edit the service manifest and referenced files.
+3. Import the repository as a [Git-backed service](https://wodby.com/docs/2.0/services/create/#create-a-git-backed-service).
+4. Reference the service from a stack manifest.
 
 Keep service, workload, container, endpoint, link, volume, config, and
 derivative names stable unless dependent stacks and app-level overrides are
-updated at the same time. These names are part of the contract consumed by
-downstream manifests.
+updated at the same time.
 
-Validate customized manifests with the Wodby CLI before importing them:
+Validate the manifests with:
 
 ```bash
 wodby service validate-manifest service.yml --org <org-id>
 ```
 
-See the [service manifest reference](https://wodby.com/docs/2.0/services/template/)
-for every supported field and the [managed services
-index](https://github.com/wodby/services) for more service examples.
+See the [service manifest reference](https://wodby.com/docs/2.0/services/template/) and the [managed services index](https://github.com/wodby/services).
