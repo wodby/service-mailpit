@@ -37,7 +37,7 @@ configuration for Mailpit.
 | Containers | `mailpit` using `axllent/mailpit` |
 | Endpoints | `mailpit`: TCP 1025, HTTP 8025 |
 | Volumes | Data |
-| Helm | chart `oci://registry-1.docker.io/wodby/mailpit`; version `0.2.0` |
+| Helm | chart `oci://registry-1.docker.io/wodby/mailpit`; version `0.2.1` |
 
 ## Use this service
 
