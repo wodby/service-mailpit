@@ -37,6 +37,11 @@ volumes:
 #    - name: persistence.existingClaim
 #      value: '{{volumes.data.claim}}'
 
+deployment:
+  strategy: rolling
+  minReady: 10s
+  shutdownGracePeriod: 30s
+
 helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/mailpit
