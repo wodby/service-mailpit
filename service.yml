@@ -2,6 +2,7 @@ name: mailpit
 icon: mailpit
 type: service
 title: Mailpit
+guidance: GUIDANCE.md
 options:
 - version: '1.20'
   tag: v1.20.7
