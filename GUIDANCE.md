@@ -12,7 +12,7 @@ What Wodby sets up for this Mailpit service. Mailpit is a mail catcher for devel
 
 Port `8025` serves the web interface and Mailpit's REST API (`/api/v1/...`). Messages are read, searched and deleted there.
 
-The captured mail includes password reset links and other secrets, so Wodby protects Mailpit's public domains with basic auth by default: each Mailpit app service gets its own generated password, which members reveal on the environment's Domains > Auths page. Services inside the environment reach port `8025` directly, without the password. A request from outside the environment to the REST API sends the same username and password.
+The captured mail includes password reset links and other secrets, so Wodby protects Mailpit's public domains with basic auth by default: each Mailpit app service gets its own generated password, which members reveal on the environment's Endpoints > Auths page. Services inside the environment reach port `8025` directly, without the password. A request from outside the environment to the REST API sends the same username and password.
 
 ## What to expect
 
