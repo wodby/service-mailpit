@@ -1,6 +1,7 @@
 name: mailpit
 icon: mailpit
 type: service
+basicAuth: true
 title: Mailpit
 guidance: GUIDANCE.md
 options:
