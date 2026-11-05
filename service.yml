@@ -64,6 +64,8 @@ workloads:
   containers:
   - name: mailpit
     image: axllent/mailpit
+    resources:
+      preset: nano
     helm:
       resources: resources
       env: envVars
