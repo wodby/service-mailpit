@@ -7,6 +7,7 @@ guidance: GUIDANCE.md
 options:
 - version: '1.20'
   tag: v1.20.7
+  digest: sha256:7eef0f38dbc85e4e264f2edf5d70fbb694826791e05cb2cae4fc9e3282f968f5
 endpoints:
 - name: mailpit
   ports:
